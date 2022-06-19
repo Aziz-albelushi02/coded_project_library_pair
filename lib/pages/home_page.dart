@@ -11,9 +11,21 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Book list"),
         centerTitle: true,
-      ),body: Column(
+      ),
+      // body
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Card(child: Column(children: [Text("Book Title"), Text("Author"), Text("genre") ],)),
+          Card(
+            color: Colors.amber,
+            child: Column(
+              children: [
+                Text("Book Title", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),), 
+                Text("Author", style: TextStyle(fontSize: 25),), 
+                Text("genre", style: TextStyle(fontSize: 20)), 
+                ]
+                )
+                ),
         ],
       ),
     );
