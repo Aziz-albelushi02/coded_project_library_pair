@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -47,6 +48,9 @@ class HomePage extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: () {
                     // books list button function
+                  print("Hi");
+                  GoRouter.of(context).push("/books-list");
+
                   },
                   icon: Icon(Icons.auto_stories_rounded),
                   label: Text(
@@ -67,7 +71,7 @@ class HomePage extends StatelessWidget {
                 // Members list button
                 ElevatedButton.icon(
                   onPressed: () {
-                    // members list button function
+                    GoRouter.of(context).push("/members-list");
                   },
                   icon: Icon(Icons.person),
                   label: Text(
