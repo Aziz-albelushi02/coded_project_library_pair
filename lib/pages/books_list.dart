@@ -19,13 +19,13 @@ class BooksListPage extends StatelessWidget {
             Text("Books List", style: Theme.of(context).textTheme.titleMedium),
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
-        // for adding an icon button
+// for adding an icon button
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 20, 8),
             child: GestureDetector(
               onTap: () {
-                // write on tap code for adding new book here
+// write on tap code for adding new book here
                 GoRouter.of(context).push("/add-new-book");
               },
               child: Icon(

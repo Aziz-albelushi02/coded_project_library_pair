@@ -76,5 +76,6 @@ class MyApp extends StatelessWidget {
     GoRoute(path: '/members-list', builder: (context, state) => MembersListPage()),
     GoRoute(path: '/add-new-member', builder: (context, state) => AddNewMemberPage()),
     GoRoute(path: '/add-new-book', builder: (context, state) => AddNewBookPage()),
+    GoRoute(path: '/book-details', builder: (context, state,) => BookDetailsPage()),
   ]);
 }
