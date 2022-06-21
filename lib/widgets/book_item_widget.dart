@@ -30,9 +30,9 @@ class BookItem extends StatelessWidget {
                   child: Row(children: [
                     // container that houses the placeholder image
                     Container(
-                      margin: EdgeInsets.fromLTRB(10, 10, 20, 10),
-                      width: 75,
-                      height: 75,
+                      margin: EdgeInsets.fromLTRB(5, 0, 15, 0),
+                      width: 100,
+                      height: 125,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
@@ -51,7 +51,7 @@ class BookItem extends StatelessWidget {
                           Flexible(
                             child: Text(
                               book.title,
-                              style: Theme.of(context).textTheme.titleLarge,
+                              style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
                           Text(

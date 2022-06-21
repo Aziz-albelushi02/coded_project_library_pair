@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
+import 'package:library_proejct/providers/book_provider.dart';
+import 'package:provider/provider.dart';
 
 class AddNewBookPage extends StatelessWidget {
   AddNewBookPage({Key? key}) : super(key: key);
@@ -31,164 +33,38 @@ class AddNewBookPage extends StatelessWidget {
           // Form column
           Column(
             children: [
-// first book title textfield
               Container(
-                margin: EdgeInsets.only(top: 20, bottom: 18),
-                width: 250,
+                width: 300,
                 child: TextField(
                   controller: _newBookTitle,
-                  // this is to style the text that is being written in the textfield
                   style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF483434),
-                      letterSpacing: 0),
-                  // decorating the input field itself
-                  decoration: InputDecoration(
-                    hintText: "e.g. Lore",
-                    hintStyle: TextStyle(
-                        fontSize: 15.5,
-                        letterSpacing: 0,
-                        color: Colors.black26),
-                    label: Text(
-                      "Book Title",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 23.5),
-                    ),
-                    filled: true,
-                    fillColor: Color.fromARGB(217, 255, 255, 255),
-                    contentPadding: EdgeInsets.only(left: 40),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-              ),
-// end of book title text field
-
-// book author textfield
-              Container(
-                margin: EdgeInsets.only(top: 20, bottom: 18),
-                width: 250,
-                child: TextField(
-                  controller: _newBookAuthor,
-                  // this is to style the text that is being written in the textfield
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF483434),
-                      letterSpacing: 0),
-                  // decorating the input field itself
-                  decoration: InputDecoration(
-                    hintText: "e.g. George R. R. Martin",
-                    hintStyle: TextStyle(
-                        fontSize: 15.5,
-                        letterSpacing: 0,
-                        color: Colors.black26),
-                    label: Text(
-                      "Author Name",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 23.5),
-                    ),
-                    filled: true,
-                    fillColor: Color.fromARGB(217, 255, 255, 255),
-                    contentPadding: EdgeInsets.only(left: 40),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-              ),
-// end of book author name text field
-
-// first book genre textfield
-              Container(
-                margin: EdgeInsets.only(top: 20, bottom: 18),
-                width: 250,
-                child: TextField(
-                  controller: _newBookGenre,
-                  // this is to style the text that is being written in the textfield
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF483434),
-                      letterSpacing: 0),
-                  // decorating the input field itself
-                  decoration: InputDecoration(
-                    hintText: "e.g. Sci-fi",
-                    hintStyle: TextStyle(
-                        fontSize: 15.5,
-                        letterSpacing: 0,
-                        color: Colors.black26),
-                    label: Text(
-                      "Book Genre",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 23.5),
-                    ),
-                    filled: true,
-                    fillColor: Color.fromARGB(217, 255, 255, 255),
-                    contentPadding: EdgeInsets.only(left: 40),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-              ),
-// end of book genre text field
-
-              Row(
-                children: [
-                  Text("check if available"),
-                  // Checkbox(
-                  //   value: value, onChanged: (onChanged))
-                ],
-              ),
-// *********** Checkbox instead of textfield for availibility*******************
-// first book borrowed by textfield
-              Container(
-                margin: EdgeInsets.only(top: 20, bottom: 18),
-                width: 250,
-                child: TextField(
-                  controller: _borrowedBy,
-                  // this is to style the text that is being written in the textfield
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF483434),
-                      letterSpacing: 0),
-                  // decorating the input field itself
-                  decoration: InputDecoration(
-                    hintText: "e.g. Ameera, Hasan",
-                    hintStyle: TextStyle(
-                      fontSize: 15.5,
                       letterSpacing: 0,
-                      color: Colors.black26
-                    ),
-                    label: Text("Borrowed by:", style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 23.5
-                      ),),
-                    filled: true,
-                    fillColor: Color.fromARGB(217, 255, 255, 255),
-                    contentPadding: EdgeInsets.only(left: 40),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
+                      fontSize: 17,
+                      color: Theme.of(context).primaryColor),
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white70,
+                      prefixIcon: Icon(Icons.title_rounded),
+                      iconColor: Theme.of(context).primaryColor,
+                      hintText: "Book Title",
+                      hintStyle: TextStyle(
+                          fontSize: 15,
+                          letterSpacing: 0,
+                          color: Color.fromARGB(255, 152, 152, 152)),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Theme.of(context).primaryColor,
+                            width: 3,
+                            style: BorderStyle.solid),
+                        borderRadius: BorderRadius.circular(5),
+                      )),
                 ),
               ),
-// end of borrowed by text field
-
               ElevatedButton(
                 onPressed: () {
                   // add new book function here needs provider
+                  Provider.of(context).read<BookProvider>().addBook();
+                  GoRouter.of(context).pop();
                 },
                 child: Text(
                   "Add",
@@ -200,7 +76,7 @@ class AddNewBookPage extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          )
         ],
       )),
     );
